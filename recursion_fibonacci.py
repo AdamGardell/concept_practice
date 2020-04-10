@@ -8,24 +8,23 @@ Created on Fri Apr 10 12:46:10 2020
 # Goal: Practice recursion by writing a recursive function to calculate the
 # value of the fibonacci sequence up to a given number of entries
 
+test_num = 7
+
 
 # Function to recursively calculate the entry of the Fibonacci sequence
 # up to the given number of entries in the sequence n (indexed from 1).
 
 # The first few elements of the fibonacci sequence are
-# value:        0, 1, 1, 2, 3, 5, 8, 13, 21, ...
-# entry number: 0, 1, 2, 3, 4, 5, 6, 7, ...
+# value:        1, 1, 2, 3, 5, 8, 13, 21, ...
+# entry number: 0, 1, 2, 3, 4, 5,  6,  7, ...
 # this generalizes to fib[n] = fib[n-1] + fib[n-2]
 
 # fib(6) should return 8, for example
 
-# in this case I have to use two base cases since I had to recursively call
-# back two places instead of just one.
-
 def fib_recursive(n):
     
     if(n == 0):
-        return 0
+        return 1
     
     if(n == 1):
         return 1
@@ -36,7 +35,7 @@ def fib_recursive(n):
 # Function to generate a list of the first n entries of the fibonacci
 # sequence.
     
-# The sequence is: 0, 1, 1, 2, 3, 5, 8, 13, 21
+# The sequence is: 1, 1, 2, 3, 5, 8, 13, 21
     
 def fib_list(n):
     
@@ -78,7 +77,7 @@ def fib_sum_if(n):
     
     fib_sum = 0
     
-    # loop through each value up to n and 
+    # loop through each value up to n
     for i in range(n):    
         fib_sum += fib_recursive(i)
         
@@ -122,6 +121,7 @@ def fib_sum_list(n):
     return fib_sum
 
 
-result = fib_sum_list(10)
-
-print(result)
+result = fib_sum_if(test_num)
+print("RESULT1: %d" %(result))
+result = fib_sum_list(test_num)
+print("RESULT2: %d" %(result))
