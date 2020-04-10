@@ -30,8 +30,22 @@ def fib(n):
         return 1
     
     return(fib(n - 1) + fib(n - 2))
+    
+    
+# Now I want to create a function to add up all of the values of the fibonacci
+# sequence up to the given entry number
+def fib_sum(n):
+    
+    fib_sum = 0
+    
+    # loop through each value up to n and 
+    for i in range(n):    
+        fib_sum += fib(i)
+        print("fib(%d) = %d" %(i, fib(i)))
+        print("fib_sum(%d) = %d\n" %(i, fib_sum))
+    return fib_sum
 
 
-result = fib(7)
+result = fib_sum(7)
 
 print(result)
