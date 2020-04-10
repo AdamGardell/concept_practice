@@ -34,6 +34,11 @@ def fib(n):
     
 # Now I want to create a function to add up all of the values of the fibonacci
 # sequence up to the given entry number
+    
+# in order to supress the if __debug__ dialogue, run the script in
+# git bash with "python -O <filename.py>"
+# "python" runs the script with python 3, -O is the option to set
+# __debug__ false.
 def fib_sum(n):
     
     fib_sum = 0
@@ -41,8 +46,12 @@ def fib_sum(n):
     # loop through each value up to n and 
     for i in range(n):    
         fib_sum += fib(i)
-        print("fib(%d) = %d" %(i, fib(i)))
-        print("fib_sum(%d) = %d\n" %(i, fib_sum))
+        
+        # I want this to work like an ifdef in C
+        if __debug__:
+            print("fib(%d) = %d" %(i, fib(i)))
+            print("fib_sum(%d) = %d\n" %(i, fib_sum))
+            
     return fib_sum
 
 
