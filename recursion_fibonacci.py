@@ -36,9 +36,24 @@ def fib(n):
 # Function to generate a list of the first n entries of the fibonacci
 # sequence.
     
+# The sequence is: 0, 1, 1, 2, 3, 5, 8, 13, 21
+    
 def fib_list(n):
     
+    fib_list = [1, 1]
     
+    if (n == 0):
+        fib_list = []
+    elif (n == 1):
+        fib_list = [1]
+    elif (n == 2):
+        fib_list = [1, 1]
+    else:
+        for i in range(2, n):
+            fib_list.append(fib_list[i - 1] + fib_list[i - 2])
+            
+            if __debug__:
+                print("n = %d, i = %d" %(n, i))
     
     return fib_list
 
@@ -92,6 +107,6 @@ def fib_sum_list(n):
     return fib_sum
 
 
-result = fib_sum_if(7)
+result = fib_list(10)
 
 print(result)
