@@ -22,7 +22,7 @@ Created on Fri Apr 10 12:46:10 2020
 # in this case I have to use two base cases since I had to recursively call
 # back two places instead of just one.
 
-def fib(n):
+def fib_recursive(n):
     
     if(n == 0):
         return 0
@@ -30,7 +30,7 @@ def fib(n):
     if(n == 1):
         return 1
     
-    return(fib(n - 1) + fib(n - 2))
+    return(fib_recursive(n - 1) + fib_recursive(n - 2))
     
     
 # Function to generate a list of the first n entries of the fibonacci
@@ -53,7 +53,8 @@ def fib_list(n):
             fib_list.append(fib_list[i - 1] + fib_list[i - 2])
             
             if __debug__:
-                print("n = %d, i = %d" %(n, i))
+                print("Debug from fib_list()")
+                print("n = %d, i = %d\n" %(n, i))
     
     return fib_list
 
@@ -79,12 +80,13 @@ def fib_sum_if(n):
     
     # loop through each value up to n and 
     for i in range(n):    
-        fib_sum += fib(i)
+        fib_sum += fib_recursive(i)
         
         # Debug print statements. Run in git bash with python -O <filename>
         # to set __debug__ false and exclude these prints.
         if __debug__:
-            print("fib(%d) = %d" %(i, fib(i)))
+            print("Debug from fib_sum_if()")
+            print("fib(%d) = %d" %(i, fib_recursive(i)))
             print("fib_sum(%d) = %d\n" %(i, fib_sum))
             
     return fib_sum
@@ -97,16 +99,29 @@ def fib_sum_if(n):
 def fib_sum_list(n):
     
     fib_sum = 0
+    fib_sequence = []
+    if __debug__:
+        debug_print_count = 0
     
     # call fib_list(n) to get the list containing the fibonacci sequence
-    
+    fib_sequence = fib_list(n)
     
     # sum up the elements of the list, save to fib_sum
-    
+    for num in fib_sequence:
+        fib_sum += num
+        
+        if __debug__:
+            debug_print_count += 1
+            print("Debug from fib_sum_list()")
+            print("Sum up to and including value %d is %d" %(num, fib_sum))
+            print("Debug print count = %d\n" %(debug_print_count))
+            
+    if __debug__:
+        print(fib_sequence)
     
     return fib_sum
 
 
-result = fib_list(10)
+result = fib_sum_list(10)
 
 print(result)
