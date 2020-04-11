@@ -5,10 +5,12 @@ Created on Fri Apr 10 12:46:10 2020
 @author: AdamG
 """
 
+from datetime import datetime
+
 # Goal: Practice recursion by writing a recursive function to calculate the
 # value of the fibonacci sequence up to a given number of entries
 
-test_num = 7
+test_num = 35
 
 
 # Function to recursively calculate the entry of the Fibonacci sequence
@@ -19,7 +21,7 @@ test_num = 7
 # entry number: 0, 1, 2, 3, 4, 5,  6,  7, ...
 # this generalizes to fib[n] = fib[n-1] + fib[n-2]
 
-# fib(6) should return 8, for example
+# fib(6) should return 13, for example
 
 def fib_recursive(n):
     
@@ -58,9 +60,9 @@ def fib_list(n):
     return fib_list
 
 
-# Now I want to create a function to add up all of the values of the fibonacci
+# Function to add up all of the values of the fibonacci
 # sequence up to the given entry number.
-# Method" use the fib() function
+# Method: use the fib() function
     
 # in order to supress the if __debug__ dialogue, run the script in
 # git bash with "python -O <filename.py>"
@@ -121,7 +123,24 @@ def fib_sum_list(n):
     return fib_sum
 
 
-result = fib_sum_if(test_num)
-print("RESULT1: %d" %(result))
-result = fib_sum_list(test_num)
-print("RESULT2: %d" %(result))
+
+#result = fib_sum_if(test_num)
+#print("RESULT1: %d" %(result))
+#result = fib_sum_list(test_num)
+#print("RESULT2: %d" %(result))
+
+# find runtime of the recursive method
+start_time_1 = datetime.now()
+result_1 = fib_sum_if(test_num)
+time_method_1 = datetime.now() - start_time_1
+
+
+
+# find runtime of the list method
+start_time_2 = datetime.now()
+result_2 = fib_sum_list(test_num)
+time_method_2 = datetime.now() - start_time_2
+
+
+print("The runtime of the recursive method is ", time_method_1)
+print("The runtime of the list method is ", time_method_2)
