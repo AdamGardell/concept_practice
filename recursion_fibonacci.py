@@ -10,7 +10,7 @@ from datetime import datetime
 # Goal: Practice recursion by writing a recursive function to calculate the
 # value of the fibonacci sequence up to a given number of entries
 
-test_num = 35
+test_num = 36
 
 
 # Function to recursively calculate the entry of the Fibonacci sequence
@@ -37,7 +37,7 @@ def fib_recursive(n):
 # Function to generate a list of the first n entries of the fibonacci
 # sequence.
     
-# The sequence is: 1, 1, 2, 3, 5, 8, 13, 21
+# The sequence is: 1, 1, 2, 3, 5, 8, 13, 21, ...
     
 def fib_list(n):
     
@@ -133,8 +133,6 @@ def fib_sum_list(n):
 start_time_1 = datetime.now()
 result_1 = fib_sum_if(test_num)
 time_method_1 = datetime.now() - start_time_1
-
-
 
 # find runtime of the list method
 start_time_2 = datetime.now()
